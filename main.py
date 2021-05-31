@@ -1,16 +1,25 @@
-# This is a sample Python script.
+# Greeting to the user
+import random
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+print("Welcome to Hangman Game!")
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+print("Let me generate a word to guess")
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# Sample word list
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+word_list = ["bee","baboon","camel","race"]
+
+selected_word = random.choice(word_list)
+
+print(selected_word)
+
+# ask user for input
+
+user_input = input("Enter a letter").lower()
+
+for selected_word in selected_word:
+    if user_input == selected_word:
+        print("Right")
+    else:
+        print("Wrong")
