@@ -21,15 +21,22 @@ display_word = []
 for _ in range(word_lenght):
     display_word += "_"
 
-# ask user for input
+# try to loop till the user win or lose
+game_end = False
 
-user_input = input("Enter a letter:\n").lower()
+while not game_end:
+    # ask user for input
+    user_input = input("Enter a letter:\n").lower()
+    # replace underscore with the right letter
+    for position in range(word_lenght):
+        letter = selected_word[position]
+        if letter == user_input:
+            display_word[position] = letter
+    print(display_word)
+
+    if "_" not in display_word:
+        game_end = True
+        print("You Win!")
 
 
-#
-for position in range(word_lenght):
-    letter = selected_word[position]
-    if letter == user_input:
-        display_word [position] = letter
 
-print(display_word)
