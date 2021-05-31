@@ -2,9 +2,83 @@
 
 import random
 
+
+# Hangman stages
+live =6
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
+
 # Greeting to the user
 
 print("Welcome to Hangman Game!")
+
+print(logo)
+
+
 
 # Sample word list
 word_list = ["Challenge","bee","baboon","camel","race"]
@@ -12,7 +86,7 @@ word_list = ["Challenge","bee","baboon","camel","race"]
 selected_word = random.choice(word_list)
 word_lenght = len(selected_word)
 
-print(f"{selected_word}")
+
 
 # create a empty list
 
@@ -37,5 +111,10 @@ while not game_end:
     if "_" not in display_word:
         game_end = True
         print("You Win!")
+
+        live -=1
+        if live == 0:
+            game_end = True
+            print("You Lose")
 
 
