@@ -1,25 +1,35 @@
-# Greeting to the user
+#class import
+
 import random
+
+# Greeting to the user
 
 print("Welcome to Hangman Game!")
 
-print("Let me generate a word to guess")
-
-
 # Sample word list
-
-word_list = ["bee","baboon","camel","race"]
+word_list = ["Challenge","bee","baboon","camel","race"]
 
 selected_word = random.choice(word_list)
+word_lenght = len(selected_word)
 
-print(selected_word)
+print(f"{selected_word}")
+
+# create a empty list
+
+display_word = []
+
+for _ in range(word_lenght):
+    display_word += "_"
 
 # ask user for input
 
-user_input = input("Enter a letter").lower()
+user_input = input("Enter a letter:\n").lower()
 
-for selected_word in selected_word:
-    if user_input == selected_word:
-        print("Right")
-    else:
-        print("Wrong")
+
+#
+for position in range(word_lenght):
+    letter = selected_word[position]
+    if letter == user_input:
+        display_word [position] = letter
+
+print(display_word)
